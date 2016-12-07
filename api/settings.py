@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     #third party apps
     'mongoengine.django.mongo_auth',
     'mongoengine.django',
+    'rest_framework',
+    'rest_framework_mongoengine'
 ]
 
 MIDDLEWARE = [
