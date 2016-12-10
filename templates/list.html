@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+<html>
+
+  {% block style %}
+  <style>
+    .pink {
+      background-color: pink;
+    }
+    .red {
+      background-color: red;
+    }
+    .green {
+      background-color: green;
+    }
+  </style>
+  {% endblock %}
+
+<body>
+    {% block content %}
+    <h1>Hello world</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 green">Hello from the other side</div>
+        <div class="col-lg-4 green">Hello from the other side</div>
+        <div class="col-lg-4 green">Hello from the other side</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-6 pink">eiei</div>
+            <div class="col-lg-6 pink">eiei</div>
+          </div>
+        </div>
+        <div class="col-lg-3 red">Hot head</div>
+        <div class="col-lg-3 red">Hot head</div>
+      </div>
+      <a class="btn btn-primary" href="{% url 'index' %}" role="button">back</a>
+    </div>
+   {% endblock %}
+</body>
+
+</html>

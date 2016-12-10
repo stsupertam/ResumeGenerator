@@ -6,21 +6,21 @@
 
 <body>
     {% block content %}
-    <h1>Hello universe</h1>
     <div class="container">
-     <table class="table table-hover">
+      <div style="text-align:center"><h1>Hello Universe</h1></div>
+      <div style="text-align:center"><h3>Power by Supertam</h3></div>
+      <table class="table table-hover">
         <tr>
-            <th colspan="2" style="text-align:center">Power by SuperTam</th>
-        </tr>
-        <tr>
-            <td>Create</td>
-            <td>Santitham Ananwattanaporn</td>
+          <td class="col-sm-6">Create</td>
+          <td class="col-sm-6">Santitham Ananwattanaporn</td>
         </tr>
         <tr>
             <td>Date</td>
             <td>8/12/2016</td>
         </tr>
-    </table>
+      </table>
+      <a class="btn btn-primary" href="{% url 'add' %}" role="button">add</a>
+      <a class="btn btn-primary" href="{% url 'list' %}" role="button">list</a>
     </div>
    {% endblock %}
 </body>

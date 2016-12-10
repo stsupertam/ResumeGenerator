@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+<html>
+
+  {% block style %}
+  <style>
+    .pink {
+      background-color: pink;
+    }
+    .red {
+      background-color: red;
+    }
+    .green {
+      background-color: green;
+    }
+  </style>
+  {% endblock %}
+
+<body>
+    {% block content %}
+    <div class="container">
+      <form class="form-horizontal" id="form-action">
+        {% csrf_token %}
+        <div class="form-group">
+          <h1 style="text-align:center">Add company</h1>
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" id="name" placeholder="CompanyName">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="jobtype" class="col-sm-2 control-label">Type</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="jobtype" id="jobtype" placeholder="jobtype">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="income" class="col-sm-2 control-label">Income</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rating" class="col-sm-2 control-label">Rating</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" name="rating" id="Rating" placeholder="Ex. 4">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" name="startDate" id="startDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="endDate" class="col-sm-2 control-label">End Date</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" name="endDate" id="endDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" name="description" id="description"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <a class="btn btn-primary" href="#" role="button" id="submit">Submit</a>
+            <a class="btn btn-primary" href="{% url 'index' %}" role="button">Back</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static "js/add.js" %}"></script>
+    {% endblock %}
+
+</body>
+
+</html>
