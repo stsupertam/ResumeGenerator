@@ -6,20 +6,9 @@
 
 <html>
 
-  {% block style %}
-  <style>
-    .pink {
-      background-color: pink;
-    }
-    .red {
-      background-color: red;
-    }
-    .green {
-      background-color: green;
-    }
-  </style>
-  {% endblock %}
-
+{% block style %}
+<link rel="stylesheet" href="{% static "css/add.css" %}"
+{% endblock %}
 <body>
     {% block content %}
     <div class="container">
@@ -30,36 +19,39 @@
           <label for="name" class="col-sm-2 control-label">Name</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="name" id="name" placeholder="CompanyName">
+            <span class="error">Company name cannot be empty.<br></span>
+            <span class="error name">Company name must unique .</span>
           </div>
         </div>
         <div class="form-group">
           <label for="jobtype" class="col-sm-2 control-label">Type</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="jobtype" id="jobtype" placeholder="jobtype">
+            <span class="error">Job type cannot be empty.</span>
           </div>
         </div>
         <div class="form-group">
           <label for="income" class="col-sm-2 control-label">Income</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500">
+            <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500" value="300">
           </div>
         </div>
         <div class="form-group">
           <label for="rating" class="col-sm-2 control-label">Rating</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" name="rating" id="Rating" placeholder="Ex. 4">
+            <input type="number" class="form-control" name="rating" id="Rating" placeholder="Ex. 4" value="3">
           </div>
         </div>
         <div class="form-group">
           <label for="startDate" class="col-sm-2 control-label">Start Date</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" name="startDate" id="startDate">
+            <input type="date" class="form-control" name="startDate" id="startDate" value="2016-12-20">
           </div>
         </div>
         <div class="form-group">
           <label for="endDate" class="col-sm-2 control-label">End Date</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" name="endDate" id="endDate">
+            <input type="date" class="form-control" name="endDate" id="endDate" value="2016-12-31">
           </div>
         </div>
         <div class="form-group">
@@ -67,6 +59,10 @@
           <div class="col-sm-10">
             <textarea class="form-control" name="description" id="description"></textarea>
           </div>
+        </div>
+        <div class="form-group">
+            <h1 class="success">Successfully added</h1>
+            <h1 class="failure">Please complete the form above. :3</h1>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
@@ -79,6 +75,9 @@
     {% endblock %}
 
     {% block js %}
+    <script src="{% static "js/serializeObject.js" %}"></script>
+    <script src="{% static "js/csrf.js" %}"></script>
+    <script src="{% static "js/validate.js" %}"></script>
     <script src="{% static "js/add.js" %}"></script>
     {% endblock %}
 

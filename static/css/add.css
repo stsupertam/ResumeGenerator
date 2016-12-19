@@ -1,0 +1,28 @@
+.error{
+  display: none;
+  color: #F44336;
+}
+
+.success{
+  display: none;
+  color: #4CAF50;
+  text-align: center;
+}
+
+.failure{
+  display: none;
+  color: #F44336;
+  text-align: center;
+}
+
+input.valid{
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px #4CAF50;
+}
+
+input.invalid{
+  outline: none;
+  border-color: #F44336;
+  box-shadow: 0 0 10px #F44336;
+}

@@ -1,12 +1,10 @@
 from apps.api.models import CompanySerializer
 from apps.api.models import Company
 from apps.api.include.slug import to_slug
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework_mongoengine import viewsets
-import json
+from rest_framework.exceptions import ValidationError
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
