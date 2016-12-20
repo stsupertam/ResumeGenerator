@@ -33,25 +33,30 @@
         <div class="form-group">
           <label for="income" class="col-sm-2 control-label">Income</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500" value="300">
+            <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500">
+            <span class="error">Income cannot be empty.</span>
           </div>
         </div>
         <div class="form-group">
           <label for="rating" class="col-sm-2 control-label">Rating</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" name="rating" id="Rating" placeholder="Ex. 4" value="3">
+            <input type="number" class="form-control" name="rating" id="rating" placeholder="Ex. 4">
+            <span class="error">Rating cannot be empty.<br></span>
+            <span class="error rating">Rating cannot be more than 5.</span>
           </div>
         </div>
         <div class="form-group">
           <label for="startDate" class="col-sm-2 control-label">Start Date</label>
           <div class="col-sm-10">
             <input type="date" class="form-control" name="startDate" id="startDate" value="2016-12-20">
+            <span class="error">Startdate cannot be empty.<br></span>
           </div>
         </div>
         <div class="form-group">
           <label for="endDate" class="col-sm-2 control-label">End Date</label>
           <div class="col-sm-10">
             <input type="date" class="form-control" name="endDate" id="endDate" value="2016-12-31">
+            <span class="error">Enddate cannot be empty.<br></span>
           </div>
         </div>
         <div class="form-group">
