@@ -3,6 +3,11 @@
   color: #F44336;
 }
 
+.error.rating{
+  display: none;
+  color: #F44336;
+}
+
 .success{
   display: none;
   color: #4CAF50;

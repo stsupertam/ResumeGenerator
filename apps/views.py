@@ -11,3 +11,4 @@ def add_company(request):
 
 def list_company(request):
     return render(request, 'list.html', {})
+
