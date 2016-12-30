@@ -1,45 +1,105 @@
-<!DOCTYPE html>
-
-{% extends 'base.html' %}
+<!DOCTYPE html> {% extends 'base.html' %} {% load static %}
 
 <html>
 
-  {% block style %}
-  <style>
-    .pink {
-      background-color: pink;
-    }
-    .red {
-      background-color: red;
-    }
-    .green {
-      background-color: green;
-    }
-  </style>
-  {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/list.css' %}"> {% endblock %}
 
 <body>
+
     {% block content %}
-    <h1>Hello world</h1>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 green">Hello from the other side</div>
-        <div class="col-lg-4 green">Hello from the other side</div>
-        <div class="col-lg-4 green">Hello from the other side</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="row">
-            <div class="col-lg-6 pink">eiei</div>
-            <div class="col-lg-6 pink">eiei</div>
-          </div>
+        <div class="col-md-offset-2 col-md-7">
+            <h1>List</h1>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading clr" data-toggle="collapse" data-target="#collapse1" data-parent="#accordion" style="cursor:pointer">
+                        <h3 class="panel-title pull-left">Eiei</h3>
+                        <div class="pull-right">
+                            <a href="#" class="icon"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" class="icon"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Rating</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">5</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Type</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">Game developer</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Income</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">300</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Start</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">01/01/16</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>End</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">31/12/16</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Description</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">The best company in the world.</h5></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading clr" data-toggle="collapse" data-target="#collapse2" data-parent="#accordion" style="cursor:pointer">
+                        <h3 class="panel-title pull-left">Eiei</h3>
+                        <div class="pull-right">
+                            <a href="#" class="icon"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" class="icon"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Rating</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">5</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Type</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">Game developer</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Income</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">300</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Start</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">01/01/16</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>End</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">31/12/16</h5></div>
+                            </li>
+                            <li class="list-group-item clearfix">
+                                <div class="label label-default col-md-2"><h5>Description</h5></div>
+                                <div class="label label-default data col-md-10"><h5 class="detail">The best company in the world.</h5></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-        <div class="col-lg-3 red">Hot head</div>
-        <div class="col-lg-3 red">Hot head</div>
-      </div>
-      <a class="btn btn-primary" href="{% url 'index' %}" role="button">back</a>
     </div>
-   {% endblock %}
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static 'js/list.js' %}"></script>
+    {% endblock %}
+
 </body>
 
 </html>
+

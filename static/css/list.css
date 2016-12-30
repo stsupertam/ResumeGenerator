@@ -1,0 +1,28 @@
+.panel-heading.clr{
+    color: white;
+    background: #428bca;
+}
+
+.btn{
+    color: black;
+}
+.panel-heading.clr:hover{
+    background: #3071A9;
+}
+
+.icon{
+    padding-right: 10px;
+    color: white;
+}
+
+.label.label-default.data{
+    background: white;
+    color: black;
+}
+
+.detail{
+    padding-left: 30px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
