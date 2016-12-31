@@ -1,13 +1,7 @@
-.panel-heading.clr{
-    color: white;
-    background: #428bca;
-}
-
-.btn{
-    color: black;
-}
-.panel-heading.clr:hover{
-    background: #3071A9;
+.detail{
+    padding-left: 30px;
+    text-align: left;
+    white-space: initial;
 }
 
 .icon{
@@ -20,9 +14,16 @@
     color: black;
 }
 
-.detail{
-    padding-left: 30px;
-    text-align: left;
-    word-wrap: break-word;
-    white-space: initial;
+.panel-heading.clr{
+    color: white;
+    background: #428bca;
+    padding-right: 10px;
+}
+
+.panel-heading.clr:hover{
+    background: #3071A9;
+}
+
+#panel-btn{
+    padding-top: 15px;
 }

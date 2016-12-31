@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .api.models import Company
 
 
 def index(request):
@@ -10,5 +11,7 @@ def add_company(request):
 
 
 def list_company(request):
-    return render(request, 'list.html', {})
+    item_count = Company.objects.count()+1
+    loop_times = range(1,item_count)
+    return render(request, 'list.html', {"loop_times": loop_times})
 
