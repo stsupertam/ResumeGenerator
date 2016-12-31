@@ -43,9 +43,18 @@ $(function(){
                 type:
                 "DELETE",
                 success: function(response){
-                    $(panel).remove();
+                    $(panel).fadeOut(1000, function(){
+                        $(this).remove();
+                    });
                 },
             });
         }
+        else{
+            a = "/edit/" + re[1]; 
+            console.log(a);
+            edit = "#edit_" + re[1];
+            $(edit).attr("href", a);
+        }
     });
 });
+ 

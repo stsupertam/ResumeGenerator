@@ -10,6 +10,10 @@ def add_company(request):
     return render(request, 'add.html', {})
 
 
+def edit_company(request, slug):
+    return render(request, 'edit.html', {"slug": slug})
+
+
 def list_company(request):
     item_count = Company.objects.count()+1
     loop_times = range(1,item_count)

@@ -19,6 +19,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^add/', views.add_company, name='add'),
+    url(r'^edit/(?P<slug>.+?)/?$', views.edit_company, name='edit'),
     url(r'^list/', views.list_company, name='list'),
     url(r'^api/', include('apps.api.urls')),
 ]
