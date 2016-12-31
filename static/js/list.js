@@ -1,5 +1,3 @@
-data = $.get("/api/company/", function(data) {}, "json");
-
 $(function(){
     $.getJSON("/api/company/", function(data){
         if(data.length ==0){
@@ -7,6 +5,7 @@ $(function(){
         }
         $.each(data, function(index){
             target = index+1;
+            panel = "#panel_" + target; 
             title = ".panel-title." + target;
             rating = ".detail.rating." + target;
             jobtype = ".detail.jobtype." + target;
@@ -14,6 +13,11 @@ $(function(){
             startDate = ".detail.startDate." + target;
             endDate = ".detail.endDate." + target;
             description = ".detail.description." + target;
+            edit = "#edit_" + target;
+            remove = "#delete_" + target;
+            id_edit_re = "edit_" +data[index].slug;
+            id_delete_re = "delete_" +data[index].slug;
+            id_panel_re = "panel_" + data[index].slug;
             $(title).text(data[index].name);
             $(rating).text(data[index].rating);
             $(jobtype).text(data[index].jobtype);
@@ -21,14 +25,27 @@ $(function(){
             $(startDate).text(data[index].startDate);
             $(endDate).text(data[index].endDate);
             $(description).text(data[index].description);
+            $(edit).attr("id", id_edit_re);
+            $(remove).attr("id", id_delete_re);
+            $(panel).attr("id", id_panel_re);
         });
     });
+});
 
-
-
-
-
-
-
-
+$(function(){
+    $(".icon").click(function(){
+        re = this.id.split("_");
+        if(re[0] == "delete"){
+            url = "/api/company/" + re[1];
+            panel = "#panel_" + re[1];
+            $.ajax({
+                url: url,
+                type:
+                "DELETE",
+                success: function(response){
+                    $(panel).remove();
+                },
+            });
+        }
+    });
 });

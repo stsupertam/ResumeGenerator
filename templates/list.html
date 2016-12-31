@@ -17,12 +17,12 @@
             <h1>List</h1>
             <div class="panel-group" id="accordion">
             {% for i in loop_times %}
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="panel_{{i}}">
                     <div class="panel-heading clr" data-toggle="collapse" data-target="#collapse{{i}}" data-parent="#accordion" style="cursor:pointer">
                         <h3 class="panel-title {{i}} pull-left">Eiei</h3>
                         <div class="pull-right">
-                            <a href="#" class="icon"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href="#" class="icon"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="#" class="icon" id="edit_{{i}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" class="icon" id="delete_{{i}}"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>
