@@ -16,6 +16,9 @@ def edit_company(request, slug):
 
 def list_company(request):
     item_count = Company.objects.count()+1
-    loop_times = range(1,item_count)
+    loop_times = range(1, item_count)
     return render(request, 'list.html', {"loop_times": loop_times})
 
+
+def resume(request):
+    return render(request, 'resume.html', {})

@@ -1,5 +1,7 @@
 from apps.api.models import CompanySerializer
+from apps.api.models import ResumeSerializer
 from apps.api.models import Company
+from apps.api.models import Resume
 from apps.api.include.slug import to_slug
 from rest_framework import status
 from rest_framework.response import Response
@@ -22,3 +24,10 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Company.objects.all()
+
+class ResumeViewSet(viewsets.ModelViewSet):
+    lookup_field = 'slug'
+    serializer_class = ResumeSerializer
+
+    def get_queryset(self):
+        return Resume.objects.all()

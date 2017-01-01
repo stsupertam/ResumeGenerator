@@ -1,0 +1,53 @@
+{
+    "firstname": "Santitham",
+    "lastname": "Ananwattanaporn",
+    "city": "Bangkok",
+    "street": "Serithai",
+    "district": "Kannayorn",
+    "sub_district": "Kannayorn",
+    "zipcode": "10230",
+    "web": "www.supertam.com",
+    "phone": "088-8888888",
+    "email": "tam@eiei.com",
+    "skill": ["sniper","police","god"],
+    "objective": "TO be god of this fucking universe",
+    "qualification": ["All of the world", "SuperTam(ST)"],
+    "education": [{"university_name": "Kasertsart",
+			"major": "Computer engineering",
+			"degree": "Bachelor",			
+			"grade" : "3.5",
+			"startDate" : "03/03/2014",
+			"endDate" : "04/03/2018"
+		},
+		{"university_name": "Kasertsart",
+			"major": "Computer engineering",
+			"degree": "Bachelor",			
+			"grade" : "3.5",
+			"startDate" : "03/03/2014",
+			"endDate" : "04/03/2018"
+		},
+		{"university_name": "Kasertsart",
+			"major": "Computer engineering",
+			"degree": "Bachelor",			
+			"grade" : "3.5",
+			"startDate" : "03/03/2014",
+			"endDate" : "04/03/2018"
+		}],
+    "experience": [{"company_name": "Hello world",
+			"job_list": ["sleep","All day"],
+			"startDate" : "03/03/2014",
+			"endDate" : "04/03/2018"	
+		},
+		{"company_name": "Hello world",
+			"job_list": ["sleep","All day"],
+			"startDate" : "03/03/2014",
+			"endDate" : "04/03/2018"	
+		},
+		{"company_name": "Hello world",
+			"job_list": ["sleep","All day"],
+			"startDate" : "03/03/2014",
+			"endDate" : "04/03/2018"	
+		}],
+    "reference": "Eiei",
+    "slug": "santitham-ananwattanaporn2"
+}
