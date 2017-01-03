@@ -18,7 +18,7 @@
             <div class="form-group">
                 <h1 style="text-align:center">Add company</h1>
                 <label for="name" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="text" class="form-control" name="name" id="name" placeholder="CompanyName">
                     <span class="error">Company name cannot be empty.<br></span>
                     <span class="error name">Company name must unique .</span>
@@ -26,21 +26,21 @@
             </div>
             <div class="form-group">
                 <label for="jobtype" class="col-sm-2 control-label">Type</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="text" class="form-control" name="jobtype" id="jobtype" placeholder="jobtype">
                     <span class="error">Job type cannot be empty.</span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="income" class="col-sm-2 control-label">Income</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500">
                     <span class="error">Income cannot be empty.</span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="rating" class="col-sm-2 control-label">Rating</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="number" class="form-control" name="rating" id="rating" placeholder="Ex. 4">
                     <span class="error">Rating cannot be empty.<br></span>
                     <span class="error rating">Rating cannot be more than 5.</span>
@@ -48,21 +48,21 @@
             </div>
             <div class="form-group">
                 <label for="startDate" class="col-sm-2 control-label">Start Date</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="date" class="form-control" name="startDate" id="startDate">
                     <span class="error">Startdate cannot be empty.<br></span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="endDate" class="col-sm-2 control-label">End Date</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="date" class="form-control" name="endDate" id="endDate">
                     <span class="error">Enddate cannot be empty.<br></span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="description" class="col-sm-2 control-label">Description</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <textarea class="form-control" name="description" id="description"></textarea>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 <h1 class="failure">Please complete the form above. :3</h1>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="col-sm-offset-2 col-sm-8">
                     <a class="btn btn-primary" href="#" role="button" id="submit">Submit</a>
                     <a class="btn btn-primary" href="{% url 'list' %}" role="button" id="submit">List</a>
                     <a class="btn btn-primary" href="{% url 'index' %}" role="button">Back</a>

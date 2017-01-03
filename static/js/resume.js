@@ -1,7 +1,5 @@
 $(function() {
-    $(".form-horizontal.2").hide();
-    $(".form-horizontal.3").hide();
-    $(".form-horizontal.4").hide();
+    $(".form-horizontal.1").show();
     $("#page1").click(function(){
         $(".form-horizontal.1").show();
         $(".form-horizontal.2").hide();

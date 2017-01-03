@@ -1,54 +1,39 @@
 <form class="form-horizontal 4" id="form-action">
     <div class="form-group">
-        <h1 style="text-align:center">Create Resume</h1>
-        <h1 style="text-align:center">Experience</h1>
-        <label for="name" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="name" id="name" placeholder="CompanyName">
+        <div align="center">
+            <h1>Create Resume</h1>
+            <h1>Experience</h1>
+            <a href="#" class="plus-function list"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="#" class="minus-function list"><span class="glyphicon glyphicon-minus"></span></a>           
+        <h1 style="text-align:center">1</h1>           
+        </div>
+        <label for="company_name" class="col-sm-2 control-label">Company Name</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="company_name" id="edu-company_name" placeholder="Ubisoft">
             <span class="error">Company name cannot be empty.<br></span>
-            <span class="error name">Company name must unique .</span>
         </div>
     </div>
     <div class="form-group">
-        <label for="jobtype" class="col-sm-2 control-label">Type</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="jobtype" id="jobtype" placeholder="jobtype">
-            <span class="error">Job type cannot be empty.</span>
+        <label for="job_list" class="col-sm-2 control-label">Job list</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="job_list" id="edu-job_list" placeholder="Computer engineering">
+            <span class="error">Job List cannot be empty.</span>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="income" class="col-sm-2 control-label">Income</label>
-        <div class="col-sm-10">
-            <input type="number" class="form-control" name="income" id="income" placeholder="Ex. 500">
-            <span class="error">Income cannot be empty.</span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="rating" class="col-sm-2 control-label">Rating</label>
-        <div class="col-sm-10">
-            <input type="number" class="form-control" name="rating" id="rating" placeholder="Ex. 4">
-            <span class="error">Rating cannot be empty.<br></span>
-            <span class="error rating">Rating cannot be more than 5.</span>
-        </div>
+        <a href="#" class="plus-function list"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="#" class="minus-function list"><span class="glyphicon glyphicon-minus"></span></a>
     </div>
     <div class="form-group">
         <label for="startDate" class="col-sm-2 control-label">Start Date</label>
-        <div class="col-sm-10">
-            <input type="date" class="form-control" name="startDate" id="startDate">
-            <span class="error">Startdate cannot be empty.<br></span>
+        <div class="col-sm-8">
+            <input type="date" class="form-control" name="startDate" id="edu-startDate">
+            <span class="error">Start date cannot be empty.<br></span>
         </div>
     </div>
     <div class="form-group">
         <label for="endDate" class="col-sm-2 control-label">End Date</label>
-        <div class="col-sm-10">
-            <input type="date" class="form-control" name="endDate" id="endDate">
-            <span class="error">Enddate cannot be empty.<br></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="description" class="col-sm-2 control-label">Description</label>
-        <div class="col-sm-10">
-            <textarea class="form-control" name="description" id="description"></textarea>
+        <div class="col-sm-8">
+            <input type="date" class="form-control" name="endDate" id="edu-endDate">
+            <span class="error">End date cannot be empty.<br></span>
         </div>
     </div>
     <div class="form-group">

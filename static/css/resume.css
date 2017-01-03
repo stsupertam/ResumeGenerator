@@ -1,3 +1,7 @@
+.form-horizontal{
+    display: none;
+}
+
 .btn-pos{
     padding-left: 193px;
 }
