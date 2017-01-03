@@ -21,4 +21,4 @@ def list_company(request):
 
 
 def resume(request):
-    return render(request, 'resume.html', {})
+    return render(request, 'resume/resume.html', {})

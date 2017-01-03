@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+<html>
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/validate.css' %}">
+<link rel="stylesheet" href="{% static 'css/resume.css' %}">
+{% endblock %}
+
+<body>
+    {% block content %}
+    <div class="container">
+    {% include 'resume/resume_personal_info.html' %}
+    {% include 'resume/resume_skill_qualification.html' %}
+    {% include 'resume/resume_education.html' %}
+    {% include 'resume/resume_experience.html' %}
+    {% include 'resume/resume_button.html' %}
+    </div>
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static 'js/serializeObject.js' %}"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
+    <script src="{% static 'js/resume_validate.js' %}"></script>
+    <script src="{% static 'js/resume.js' %}"></script>
+    {% endblock %}
+
+</body>
+
+</html>
