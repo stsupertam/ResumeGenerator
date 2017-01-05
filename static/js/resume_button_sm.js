@@ -4,6 +4,9 @@ function plus_button(type, counter){
     origin = "#li-" + type + '-' + (counter -1);
     target = ".input." + temp[0];
     var html = $(origin).clone();
+    if(temp[0] == "joblist"){
+        target = ".input.joblist." + temp[1];
+    }
     html.attr("id", copy_id);
     $(target).append(html);
 }
@@ -18,7 +21,7 @@ var counter_qualification = 1;
 var counter_joblist = [];
 
 $(function() {
-    $(".plus-function").click(function(){
+    $(".plus-function.sm").click(function(){
         var parent_class = $(this).parent().attr("class").split(' ');
         if(parent_class[1] == "skill"){
             counter_skill += 1;
@@ -37,7 +40,7 @@ $(function() {
             plus_button(joblist, counter_joblist[parent_class[2]]);
         }
     });
-    $(".minus-function").click(function(){
+    $(".minus-function.sm").click(function(){
         var parent_class = $(this).parent().attr("class").split(' ');
         if(parent_class[1] == "skill"){
             if(counter_skill >= 2){
