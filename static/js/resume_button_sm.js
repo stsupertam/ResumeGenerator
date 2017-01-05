@@ -3,7 +3,7 @@ function plus_button(type, counter){
     copy_id = "li-" + type + '-' + counter;
     origin = "#li-" + type + '-' + (counter -1);
     target = ".input." + temp[0];
-    var html = $(origin).clone();
+    var html = $(origin).clone(true, true);
     if(temp[0] == "joblist"){
         target = ".input.joblist." + temp[1];
     }
