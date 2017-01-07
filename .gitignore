@@ -92,3 +92,6 @@ internship-env/
 
 # spacemacs
 .projectile
+
+# javascript
+static/js/.tern-port

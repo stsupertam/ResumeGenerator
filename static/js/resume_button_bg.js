@@ -45,7 +45,6 @@ function plus_button_bg(type, counter){
 
 function minus_button_bg(type, counter){
     var _class = type + counter;
-    console.log(_class);
     $(_class).remove();
 }
 

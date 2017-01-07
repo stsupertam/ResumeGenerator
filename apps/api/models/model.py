@@ -23,7 +23,7 @@ class Education(EmbeddedDocument):
 
 class Experience(EmbeddedDocument):
     company_name = StringField(required=True)
-    job_list = ListField()
+    joblist = ListField()
     startDate = StringField(required=True)
     endDate = StringField(required=True)
 
@@ -37,7 +37,7 @@ class Resume(Document):
     sub_district = StringField(required=True)
     zipcode = IntField(required=True)
     web = StringField(required=True)
-    phone = IntField(required=True)
+    phone = StringField(required=True)
     email = StringField(required=True)
     skill = ListField(required=True)
     objective = StringField(required=True)
