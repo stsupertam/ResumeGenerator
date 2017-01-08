@@ -14,3 +14,25 @@ $(function(){
     });
 
 });
+
+$(function(){
+    $("#delete").click(function(){
+        slug = $("div").attr("class");
+        url = "/api/resume/" + slug + "/";
+        $.ajax({
+            url: url,
+            type:
+            "DELETE",
+            success: function(response){
+                $("#json").fadeOut(1000, function(){
+                    $(this).remove();
+                });
+                $(".success").show();
+                setTimeout(function(){
+                    window.location.href = "/";
+                },3000);
+            },
+        });
+    });
+
+});

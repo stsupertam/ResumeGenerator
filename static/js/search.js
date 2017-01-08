@@ -27,9 +27,12 @@ $(function(){
                 console.log(check_item);
                 if(check_item)
                     $(".search").attr("href", url);
+                else
+                    $(".error.not-found").show();
             }
             else{
                 $(".error").show();
+                $(".error.not-found").hide();
             }
         }
     });
