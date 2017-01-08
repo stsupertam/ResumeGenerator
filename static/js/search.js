@@ -15,7 +15,7 @@ function send_get(slug){
 
 
 $(function(){
-    $("#search-function").click("input", function(){
+    $("#search-function").click(function(){
         var input = $("#search").val();
         if(input){
             input = input.split(' ');

@@ -1,1 +1,23 @@
-eiei
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+<html>
+<body>
+
+    {% block content %}
+    <div class="{{ slug }}">
+        <pre id="json"></pre>
+        <a class="btn btn-primary" href="#/" role="button" id="edit">Edit</a>
+        <a class="btn btn-primary" href="#/" role="button" id="delete">Delete</a>
+        <a class="btn btn-primary" href="{% url 'index' %}" role="button">Back</a>
+    </div>
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/resume_view.js' %}"></script>
+    {% endblock %}
+</body>
+</html>
+
