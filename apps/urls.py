@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^add/', views.add_company, name='add'),
     url(r'^edit/(?P<slug>.+?)/?$', views.edit_company, name='edit'),
     url(r'^list/', views.list_company, name='list'),
-    url(r'^resume/', views.resume, name='resume'),
+    url(r'^resume/view/(?P<slug>.+?)/?$', views.resume_view, name='resume_view'),
+    url(r'^resume/create/?$', views.resume_create, name='resume_create'),
     url(r'^api/', include('apps.api.urls')),
 ]

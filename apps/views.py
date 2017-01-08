@@ -20,5 +20,15 @@ def list_company(request):
     return render(request, 'list.html', {"loop_times": loop_times})
 
 
-def resume(request):
-    return render(request, 'resume/resume.html', {})
+def resume_view(request, slug):
+    return render(request, 'resume/resume_view.html', {})
+
+
+# def resume_edit(request):
+#     item_count = Company.objects.count()+1
+#     loop_times = range(1, item_count)
+#     return render(request, 'list.html', {"loop_times": loop_times})
+
+
+def resume_create(request):
+    return render(request, 'resume/resume_create.html', {})

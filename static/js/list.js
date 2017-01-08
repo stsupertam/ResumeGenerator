@@ -1,7 +1,7 @@
 $(function(){
     $.getJSON("/api/company/", function(data){
         if(data.length ==0){
-            $("<h1>Item Not Found</h1>").insertBefore(".panel-group")
+            $("<h1>Item Not Found</h1>").insertBefore(".panel-group");
         }
         $.each(data, function(index){
             target = index+1;

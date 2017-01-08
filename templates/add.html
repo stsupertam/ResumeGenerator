@@ -5,11 +5,6 @@
 {% load static %}
 
 <html>
-
-{% block style %}
-<link rel="stylesheet" href="{% static 'css/validate.css' %}">
-{% endblock %}
-
 <body>
     {% block content %}
     <div class="container">
@@ -80,14 +75,11 @@
         </form>
     </div>
     {% endblock %}
-
     {% block js %}
     <script src="{% static 'js/serializeObject.js' %}"></script>
     <script src="{% static 'js/csrf.js' %}"></script>
     <script src="{% static 'js/validate.js' %}"></script>
     <script src="{% static 'js/add.js' %}"></script>
     {% endblock %}
-
 </body>
-
 </html>

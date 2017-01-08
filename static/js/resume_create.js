@@ -62,6 +62,9 @@ function send_post(){
         },
         error: function(xhr, resp, text){
             console.log(xhr, resp, text);
+            $("#pes-firstname").removeClass("valid").addClass("invalid");
+            $("#pes-lastname").removeClass("valid").addClass("invalid");
+            $(".failure.unique").show();
         }
     });
 }

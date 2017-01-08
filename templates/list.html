@@ -5,10 +5,6 @@
 {% load static %}
 
 <html>
-
-{% block style %}
-<link rel="stylesheet" href="{% static 'css/list.css' %}"> {% endblock %}
-
 <body>
 
     {% block content %}
@@ -57,7 +53,7 @@
                 </div>
                 {% endfor %}
                 <div id="panel-btn">
-                    <a class="btn btn-primary" href="{% url 'add' %}" role="button">add</a>
+                    <a class="btn btn-primary" href="{% url 'add' %}" role="button">Add</a>
                     <a class="btn btn-primary" href="{% url 'index' %}" role="button">Back</a>
                 </div>
             </div>
@@ -68,8 +64,6 @@
     {% block js %}
     <script src="{% static 'js/list.js' %}"></script>
     {% endblock %}
-
 </body>
-
 </html>
 

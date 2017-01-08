@@ -4,6 +4,9 @@ from apps.api.models import Company
 from apps.api.models import Resume
 from apps.api.include.slug import to_slug
 from rest_framework_mongoengine import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import list_route
+import json
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
@@ -25,6 +28,15 @@ class CompanyViewSet(viewsets.ModelViewSet):
 class ResumeViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
     serializer_class = ResumeSerializer
+
+    @list_route()
+    def get_slug(self, request):
+        slug = {}
+        slug['list'] = []
+        data = Resume.objects.values_list('slug')
+        for item in data:
+            slug['list'].append(item)
+        return Response(slug)
 
     def create(self, request, *args, **kwargs):
         slug = request.data.get('firstname') + ' ' + request.data.get('lastname')
