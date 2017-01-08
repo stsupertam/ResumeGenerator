@@ -1,11 +1,12 @@
 function plus_button(type, counter){
     temp = type.split('-');
-    copy_id = "li-" + type + '-' + counter;
-    origin = "#li-" + type + '-' + (counter -1);
-    target = ".input." + temp[0];
+    copy_id =  type + '-' + counter;
+    origin = "#" + type + '-' + (counter -1);
+    target = ".input." + temp[1];
     var html = $(origin).clone(true, true);
     if(temp[0] == "joblist"){
-        target = ".input.joblist." + temp[1];
+        target = ".input.joblist." + temp[2];
+        console.log(target)
     }
     html.attr("id", copy_id);
     $(target).append(html);
@@ -36,7 +37,7 @@ $(function() {
                 counter_joblist[parent_class[2]] = 1;
             }
             counter_joblist[parent_class[2]] += 1;
-            joblist = "joblist-" + parent_class[2]; 
+            joblist = "exp-joblist-" + parent_class[2]; 
             plus_button(joblist, counter_joblist[parent_class[2]]);
         }
     });
@@ -44,20 +45,20 @@ $(function() {
         var parent_class = $(this).parent().attr("class").split(' ');
         if(parent_class[1] == "skill"){
             if(counter_skill >= 2){
-                minus_button("#li-skill-", counter_skill);
+                minus_button("#skill-", counter_skill);
                 counter_skill -= 1;
             }
         }
         else if(parent_class[1] == "qualification"){
             if(counter_qualification >= 2){
-                minus_button("#li-qualification-", counter_qualification);
+                minus_button("#qualification-", counter_qualification);
                 counter_qualification -= 1;
             }
         }
         else if(parent_class[1] == "joblist"){
             if(counter_joblist[parent_class[2]] != null){
                 if(counter_joblist[parent_class[2]] >= 2){
-                    joblist = "#li-joblist-" + parent_class[2] + "-";
+                    joblist = "#exp-joblist-" + parent_class[2] + "-";
                     minus_button(joblist, counter_joblist[parent_class[2]]);
                     counter_joblist[parent_class[2]] -= 1;
                 }

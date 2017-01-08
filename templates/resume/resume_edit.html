@@ -1,4 +1,4 @@
-e{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
@@ -6,7 +6,7 @@ e{% extends 'base.html' %}
 
 <body>
     {% block content %}
-    <div class="container">
+    <div class="{{ slug }}">
     {% include 'resume/resume_personal_info.html' %}
     {% include 'resume/resume_skill_qualification.html' %}
     {% include 'resume/resume_education.html' %}
@@ -20,7 +20,7 @@ e{% extends 'base.html' %}
     <script src="{% static 'js/csrf.js' %}"></script>
     <script src="{% static 'js/resume_validate.js' %}"></script>
     <script src="{% static 'js/resume.js' %}"></script>
-    <script src="{% static 'js/resume_create.js' %}"></script>
+    <script src="{% static 'js/resume_edit.js' %}"></script>
     <script src="{% static 'js/resume_button_sm.js' %}"></script>
     <script src="{% static 'js/resume_button_bg.js' %}"></script>
     {% endblock %}

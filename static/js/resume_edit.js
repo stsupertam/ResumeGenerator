@@ -1,3 +1,41 @@
+function form_get(data){
+    $("input").each(function(){
+        input = $(this).attr("id");
+        if(input != null){
+            input = input.split('-');
+            // if(input[0] == "pes")
+            //     console.log("pes "+ input[1]);
+            // else if(input[0] == "li")
+            //     console.log("li "+ input[1]);
+            // else if(input[0] == "edu")
+            //     console.log("edu "+ input[1]);
+            // else if(input[0] == "exp")
+            //     console.log("exp "+ input[1]);
+        }
+
+
+
+    });
+}
+
+$(function(){
+    // form_class = $("form").attr("class").split(' ');
+    slug = $("div").attr("class");
+    url = "/api/resume/" + slug + "/";
+    $.getJSON(url, function(data){
+        form_get(data);
+        // $("#name").attr("value", data.name);
+        // $("#jobtype").attr("value", data.jobtype);
+        // $("#income").attr("value", data.income);
+        // $("#rating").attr("value", data.rating);
+        // $("#startDate").attr("value", data.startDate);
+        // $("#endDate").attr("value", data.endDate);
+        // $("#description").text(data.description);
+        // $("input.valid").show();
+        // $("input").addClass("valid");
+    });
+});
+
 function get_json(){
     var data = {};
     var skill_inp = [];
@@ -45,7 +83,7 @@ function get_json(){
 function send_post(){
     data = get_json();
     $.ajax({
-        type: "POST",
+        type: "PUT",
         url: "/api/resume/",
         dataType: "json",
         contentType: "application/json",

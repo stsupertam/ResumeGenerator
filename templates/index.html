@@ -38,8 +38,10 @@
                 <td>8/12/2016</td>
             </tr>
         </table>
-        <a class="btn btn-primary" href="{% url 'add' %}" role="button">Add</a>
-        <a class="btn btn-primary" href="{% url 'list' %}" role="button">List</a>
+        <div class="col-sm-12">
+            <a class="btn btn-primary" href="{% url 'add' %}" role="button">Add</a>
+            <a class="btn btn-primary" href="{% url 'list' %}" role="button">List</a>           
+        </div>
     </div>
     {% endblock %}
     {% block js %}
