@@ -11,6 +11,11 @@
     {% include 'resume/resume_skill_qualification.html' %}
     {% include 'resume/resume_education.html' %}
     {% include 'resume/resume_experience.html' %}
+        <div class="form-group">
+            <h1 class="success">Successfully added</h1>
+            <h1 class="failure">Please complete the form above. :3</h1>
+            <h1 class="failure unique">Your resume already exist.</h1>
+        </div>
     {% include 'resume/resume_button.html' %}
     </div>
     {% endblock %}
@@ -19,6 +24,7 @@
     <script src="{% static 'js/serializeObject.js' %}"></script>
     <script src="{% static 'js/csrf.js' %}"></script>
     <script src="{% static 'js/resume_validate.js' %}"></script>
+    <script src="{% static 'js/resume_getJSON.js' %}"></script>
     <script src="{% static 'js/resume.js' %}"></script>
     <script src="{% static 'js/resume_create.js' %}"></script>
     <script src="{% static 'js/resume_button_sm.js' %}"></script>

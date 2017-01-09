@@ -2,11 +2,10 @@ function plus_button(type, counter){
     temp = type.split('-');
     copy_id =  type + '-' + counter;
     origin = "#" + type + '-' + (counter -1);
-    target = ".input." + temp[1];
+    target = ".input." + temp[0];
     var html = $(origin).clone(true, true);
-    if(temp[0] == "joblist"){
+    if(temp[1] == "joblist"){
         target = ".input.joblist." + temp[2];
-        console.log(target)
     }
     html.attr("id", copy_id);
     $(target).append(html);
@@ -21,8 +20,22 @@ var counter_skill = 1;
 var counter_qualification = 1;
 var counter_joblist = [];
 
+function get_correct_counter(){
+    temp = $(".form-group.skill").find("input").last().attr("id").split('-');
+    counter_skill = parseInt(temp[1]);
+    temp = $(".form-group.qualification").find("input").last().attr("id").split('-');
+    counter_qualification = parseInt(temp[1]);
+    temp = $(".container.experience").find(".experience").last().attr("class").split(' ');
+    for(i=0; i<temp[1]; i++){
+        target = ".input.joblist." + (i+1);
+        temp2 = $(target).find("input").last().attr("id").split('-');
+        counter_joblist[i+1] = parseInt(temp2[3]);
+    }
+}
+
 $(function() {
     $(".plus-function.sm").click(function(){
+        get_correct_counter();
         var parent_class = $(this).parent().attr("class").split(' ');
         if(parent_class[1] == "skill"){
             counter_skill += 1;
@@ -42,6 +55,7 @@ $(function() {
         }
     });
     $(".minus-function.sm").click(function(){
+        get_correct_counter();
         var parent_class = $(this).parent().attr("class").split(' ');
         if(parent_class[1] == "skill"){
             if(counter_skill >= 2){

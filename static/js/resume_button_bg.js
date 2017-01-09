@@ -1,17 +1,21 @@
-function change_id(html, counter){
+function change_id(type, html, counter){
     count = true;
     html.find("input").each(function(){
         if($(this).attr("name") == "joblist"){
             if(count == true){
-                temp = "li-joblist-" + counter + "-" + 1;
+                temp = "exp-joblist-" + counter + "-" + 1;
                 count = false;
             }
             else{
                 $(this).remove();
             }
         }
-        else
-            temp = "edu-" + $(this).attr("name") + "-" + counter;
+        else{
+            if(type == "education")
+                temp = "edu-" + $(this).attr("name") + "-" + counter;
+            else
+                temp = "exp-" + $(this).attr("name") + "-" + counter;
+        }
         $(this).attr("id", temp);
     });
     return html;
@@ -39,7 +43,7 @@ function plus_button_bg(type, counter){
     target = ".container." + type;
     var html = $(origin).clone(true, true);
     html = change_class(type , html, counter);
-    html = change_id(html, counter);
+    html = change_id(type, html, counter);
     $(target).append(html);
 }
 
@@ -51,8 +55,16 @@ function minus_button_bg(type, counter){
 var counter_exp = 1;
 var counter_edu = 1;
 
+function get_correct_counter_bg(){
+    temp = $(".container.education").find(".education").last().attr("class").split(' ');
+    counter_edu = parseInt(temp[1]);
+    temp = $(".container.experience").find(".experience").last().attr("class").split(' ');
+    counter_exp = parseInt(temp[1]);
+}
+
 $(function() {
     $(".plus-function.bg").click(function(){
+        get_correct_counter_bg();
         var parent_class = $(this).parent().attr("class");
         if(parent_class == "experience"){
             counter_exp += 1;
@@ -64,6 +76,7 @@ $(function() {
         }
     });
     $(".minus-function.bg").click(function(){
+        get_correct_counter_bg();
         var parent_class = $(this).parent().attr("class");
         if(parent_class == "experience"){
             if(counter_exp >= 2){

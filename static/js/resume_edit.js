@@ -1,90 +1,68 @@
 function form_get(data){
-    $("input").each(function(){
-        input = $(this).attr("id");
-        if(input != null){
-            input = input.split('-');
-            // if(input[0] == "pes")
-            //     console.log("pes "+ input[1]);
-            // else if(input[0] == "li")
-            //     console.log("li "+ input[1]);
-            // else if(input[0] == "edu")
-            //     console.log("edu "+ input[1]);
-            // else if(input[0] == "exp")
-            //     console.log("exp "+ input[1]);
+    for(item in data){
+        if(item == "skill" || item == "qualification"){
+            for(i=1; i<=data[item].length; i++){
+                target = "#" + item + "-" + i;
+                plus_button(item, i);
+                $(target).attr("value", data[item][i-1]);
+            }
         }
+        else if(item == "education"){
+            for(i=1; i<=data[item].length; i++){
+                plus_button_bg("education", i);
+                for(item2 in data[item][i-1]){
+                    target = "#edu-" + item2 + "-" + i;
+                    $(target).attr("value", data[item][i-1][item2]);
+                }
+            }
+        }
+        else if(item == "experience"){
+            for(i=1; i<=data[item].length; i++){
+                plus_button_bg("experience", i);
+                for(item2 in data[item][i-1]){
+                    if(item2 != "joblist"){
+                        target = "#exp-" + item2 + "-" + i;
+                        parent = ".experience." + i;
+                        $(target).attr("value", data[item][i-1][item2]);
+                    }
+                    else{
+                        for(j=1; j<=data[item][i-1][item2].length; j++){
+                            target = "#exp-" + item2 + "-" + i + "-" + j;
+                            joblist = "exp-joblist-" + i;
+                            plus_button(joblist, j);
 
-
-
-    });
+                            $(target).attr("value", data[item][i-1][item2][j-1]);
+                        }
+                    }
+                }
+            }
+        }
+        else{
+            var target = "#pes-" + item;
+            $(".form-horizontal.resume.1").find(target).attr("value", data[item]);
+        }
+    }
 }
 
 $(function(){
+    $(".resume-title").html("Edit Resume");
     // form_class = $("form").attr("class").split(' ');
     slug = $("div").attr("class");
     url = "/api/resume/" + slug + "/";
     $.getJSON(url, function(data){
         form_get(data);
-        // $("#name").attr("value", data.name);
-        // $("#jobtype").attr("value", data.jobtype);
-        // $("#income").attr("value", data.income);
-        // $("#rating").attr("value", data.rating);
-        // $("#startDate").attr("value", data.startDate);
-        // $("#endDate").attr("value", data.endDate);
-        // $("#description").text(data.description);
-        // $("input.valid").show();
-        // $("input").addClass("valid");
+        $("input").addClass("valid");
     });
 });
 
-function get_json(){
-    var data = {};
-    var skill_inp = [];
-    var qualification_inp = [];
-    var personal_info_inp = $(".form-horizontal.1").serializeObject();
-    for(var key in personal_info_inp)
-        data[key] = personal_info_inp[key];
-    $(".form-horizontal.2").find("input").each(function(i){
-        input_name = $(this).attr("id").split("-");
-        if(input_name[1] == "skill")
-            skill_inp.push($(this).attr("value"));
-        else
-            qualification_inp.push($(this).attr("value"));
-
-    });
-    var education_inp = [];
-    $(".education").each(function(i, obj){
-        class_name = $(this).attr("class");
-        if(class_name != "container education" && class_name != "education"){
-            i -= 1;
-            var element_selelector = ".education." + i + " " + ":input";
-            education_inp.push($(element_selelector).serializeObject());
-        }
-    });
-    var experience_inp = [];
-    $(".experience").each(function(i, obj){
-        class_name = $(this).attr("class");
-        if(class_name != "container experience" && class_name != "experience"){
-            i -= 1;
-            var element_selelector = ".experience." + i + " " + ":input";
-            experience_inp.push($(element_selelector).serializeObject());
-            if(experience_inp[i-1]['joblist'].length <= 1){
-                experience_inp[i-1]['joblist'] = [experience_inp[i-1]['joblist']];
-            }
-        }
-    });
-    data['qualification'] = qualification_inp;
-    data['skill'] = skill_inp;
-    data['education'] = education_inp;
-    data['experience'] = experience_inp;
-    data = JSON.stringify(data);
-    return data;
-}
 
 function send_post(){
     data = get_json();
+    slug = $("div").attr("class");
+    url = "/api/resume/" + slug + "/";
     $.ajax({
         type: "PUT",
-        url: "/api/resume/",
+        url: url,
         dataType: "json",
         contentType: "application/json",
         data: data,
@@ -123,17 +101,5 @@ $(function() {
             $(".failure").show();
             $(".success").hide();
         }
-    });
-});
-
-$(function(){
-    $("#debug").click(function(){
-        $("input").each(function(){
-            $(this).addClass("valid");
-            if($(this).attr("name") != "startDate" && $(this).attr("name") != "endDate")
-                $(this).attr("value", "1");
-            else
-                $(this).attr("value", "0001-01-01");
-        });
     });
 });
