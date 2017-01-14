@@ -21,7 +21,7 @@ def list_company(request):
 
 
 def resume_view(request, slug):
-    return render(request, 'resume/resume_data.html', {"slug": slug})
+    return render(request, 'resume/resume_view.html', {"slug": slug})
 
 
 def resume_edit(request, slug):

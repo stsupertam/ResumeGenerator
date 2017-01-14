@@ -1,26 +1,89 @@
-<!DOCTYPE html>
-
-{% extends 'base.html' %}
-
-{% load static %}
+<!DOCTYPE html> {% extends 'base.html' %} {% load static %}
 
 <html>
-    <head>
-        {% block style $}
-        <link rel="stylesheet" href="{% static 'css/resume_view.css' %}">
 
-        {% block content %}
+<head>
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/resume_view.css' %}"> {% endblock %}
+</head>
+
+<body>
+    {% block content %}
     <div class="{{ slug }}">
-        {% include 'resume/resume_data.html' %}
+        <div class="container a4">
+            <div class="inside">
+                <div class="row">
+                    <div class="col-sm-2 header">
+                        <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png" class="img-circle" width="100px" height="100px" />
+
+                    </div>
+                    <div class="pull-left col-sm-6">
+                        <h1 id="name">Your Name</h1>
+                    </div>
+                    <div class="pull-left col-sm-4 header">
+                        <p id="address">99/93 Serithai Rd. Kannayorn Bangkok 10230</p>
+                        <p id="phone">Tel: 091-1235678</p>
+                        <p id="email">Email: mail@mail.com</p>
+                        <p id="web">Web: google.com</p>
+                    </div>
+                </div>
+                <div class="row objective">
+                    <h1 class="title">Objective</h1>
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <p id="objective">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis
+                        </p>
+                    </div>
+                </div>
+                <div class="row skill">
+                    <h1 class="title">SKILL</h1>
+                    <div class="sq-skill col-sm-offset-2 col-sm-8">
+                        <p id="skill-1">Hello world</p>
+                    </div>
+                </div>
+                <div class="row qualification">
+                    <h1 class="title">QUALIFICATION</h1>
+                    <div class="sq-qualification col-sm-offset-2 col-sm-8">
+                        <p id="qualification-1">Hello world</p>
+                    </div>
+                </div>
+                <div class="row experience">
+                    <h1 class="title">EXPERIENCE</h1>
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <div class="job-1">
+                            <h3 id="jobname-1">Job name <span class="pull-right"><p id="exp-date-1">2011-present</p></span></h3>
+                            <p id="com-name-1">Company name</p>
+                            <p id="job-li-1-1" class="job-li">Job description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row education">
+                    <h1 class="title">EDUCATION</h1>
+                    <div class="edu col-sm-offset-2 col-sm-8">
+                        <div class="edu-1">
+                            <div>
+                                <span class="pull-right" id="edu-date-1"></span>
+                                <h3 id="eduname-1">Name of Education</h3>
+                                <p id="degree-1">Bachelor degree</p>
+                                <p id="uname-1">Name of university</span></p>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-offset-3 col-sm-9">
         <h1 class="success">Delete succesful</h1>
         <a class="btn btn-primary" href="#/" role="button" id="edit">Edit</a>
         <a class="btn btn-primary" href="#/" role="button" id="delete">Delete</a>
         <a class="btn btn-primary" href="{% url 'index' %}" role="button">Back</a>
     </div>
-    {% endblock %}
-    {% block js %}
+
+    {% endblock %} {% block js %}
     <script src="{% static 'js/resume_view.js' %}"></script>
     {% endblock %}
 </body>
-</html>
 
+</html>
