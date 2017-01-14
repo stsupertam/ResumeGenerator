@@ -5,11 +5,13 @@
 {% load static %}
 
 <html>
-<body>
+    <head>
+        {% block style $}
+        <link rel="stylesheet" href="{% static 'css/resume_view.css' %}">
 
-    {% block content %}
+        {% block content %}
     <div class="{{ slug }}">
-        <pre id="json"></pre>
+        {% include 'resume/resume_data.html' %}
         <h1 class="success">Delete succesful</h1>
         <a class="btn btn-primary" href="#/" role="button" id="edit">Edit</a>
         <a class="btn btn-primary" href="#/" role="button" id="delete">Delete</a>
