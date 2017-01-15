@@ -75,6 +75,9 @@ function send_post(){
             });
             $(".failure").hide();
             $(".error").hide();
+            setTimeout(function(){
+                window.location.href = "/resume/view/" + slug;
+            },3000);
         },
         error: function(xhr, resp, text){
             console.log(xhr, resp, text);

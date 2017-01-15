@@ -23,6 +23,7 @@ class Education(EmbeddedDocument):
 
 class Experience(EmbeddedDocument):
     company_name = StringField(required=True)
+    jobtype = StringField(required=True)
     joblist = ListField()
     startDate = StringField(required=True)
     endDate = StringField(required=True)

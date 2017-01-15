@@ -1,53 +1,46 @@
 function add_sq(data, type){
-    target = "#" + type + "-"; 
-    first_element = target + 1;
-    $(first_element).text(data[0]);
     class_target = ".sq-" + type; 
-    for(i=1 ; i<data.length; i++){
+    for(i=0 ; i<data.length; i++){
         p = "<p>" + data[i] + "</p>";
         $(class_target).append(p);
     }
 }
 
-function add_edu(data){
-    $("#degree-1").text(data[0]['degree']);
-    $("#eduname-1").text(data[0]['major']);
-    university_name = data[0]['university_name'] + "(GPA: " + data[0]['grade'].toFixed(2) + ")";
-    $("#uname-1").text(university_name);
-    start_year = data[0]['startDate'].split('-');
-    end_year = data[0]['endDate'].split('-');
-    date = start_year[0] + "-" + end_year[0];
-    $("#edu-date-1").text(date);
-    for(i=1; i<data.length; i++){
-        var html = $(".edu-1").clone(true, true);
-        degree = "degree-" + (i+1); 
-        grade = "grade-" + (i+1); 
-        university_name = "uname-" + (i+1); 
-        eduname = "eduname-" + (i+1); 
-        edudate = "edu-date-" + (i+1); 
-        id_degree = "#degree-" + (i+1); 
-        id_grade = "#grade-" + (i+1); 
-        id_university_name = "#uname-" + (i+1); 
-        id_eduname = "#eduname-" + (i+1); 
-        id_edudate = "#edu-date-" + (i+1); 
-        html.find("#degree-1").attr("id", degree);
-        html.find("#grade-1").attr("id", grade);
-        html.find("#uname-1").attr("id", university_name);
-        html.find("#eduname-1").attr("id", eduname);
-        html.find("#edu-date-1").attr("id", edudate);
-        $(".edu").append(html);
-        uname = data[i]['university_name'] + "(GPA: " + data[i]['grade'].toFixed(2) + ")";
+function add_edu_exp(data, type){
+    for(i=0; i<data.length; i++){
+        clone_target = "." + type + "-0";
+        append_target = "." + type;
+        var html = $(clone_target).clone(true, true);
+        for(item in data[i]){
+            if(item != "endDate" && item != "startDate"){
+                id = item + "-" + (i+1);
+                target = "#" + item + "-" + (i+1);
+                origin = "#" + item + "-" + 0;
+                type_class = type + "-" + (i+1);
+                html.attr("class", type_class);
+                html.find(origin).attr("id", id);
+                html.find(target).text(data[i][item]);
+            }
+        }
         start_year = data[i]['startDate'].split('-');
         end_year = data[i]['endDate'].split('-');
         date = start_year[0] + "-" + end_year[0];
-        $(id_degree).text(data[i]['degree']);
-        $(id_eduname).text(data[i]['major']);
-        $(id_university_name).text(uname);
-        $(id_edudate).text(date);
+        date_target = "#" + type + "-date-" + (i+1); 
+        type_date_id = type + "-date-" + (i+1);
+        type_date_origin = "#" + type + "-date-" + 0;
+        html.find(type_date_origin).attr("id", type_date_id);
+        html.find(date_target).text(date);
+        if(type == "edu")
+            $(append_target).append(html);
+        else{
+            for(j=0; j<data[i]['joblist'].length; j++){
+                p = "<p class='joblist'>" + data[i]['joblist'][j] + "</p>";
+                exp = ".exp-" + i;
+                html.append(p);
+            }
+            $(append_target).append(html);
+        }
     }
-
-
-
 }
 
 $(function(){
@@ -57,14 +50,6 @@ $(function(){
         console.log(data);
         name = data['firstname'] + " " + data['lastname'];
         address = data['street']+ " " + data['district'] + " " + data['city'] + " " + data['zipcode'];
-
-
-       
-
-
-
-
-
         $("#name").text(name);
         $("#address").text(address);
         $("#phone").text(data['phone']);
@@ -73,15 +58,8 @@ $(function(){
         $("#objective").text(data['objective']);
         add_sq(data['skill'], "skill");
         add_sq(data['qualification'], "qualification");
-        add_edu(data['education']);
-
-
-
-
-
-
-
-
+        add_edu_exp(data['education'], "edu");
+        add_edu_exp(data['experience'], "exp");
     }, "json");
 });
 
