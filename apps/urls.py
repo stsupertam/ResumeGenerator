@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^list/', views.list_company, name='list'),
     url(r'^resume/view/(?P<slug>.+?)/?$', views.resume_view, name='resume_view'),
     url(r'^resume/create/?$', views.resume_create, name='resume_create'),
+    url(r'^resume/pdf/?$', views.pdf_view, name='pdf_view'),
+    url(r'^resume/pdf-test/?$', views.pdf_view_test, name='pdf_view_test'),
     url(r'^resume/edit/(?P<slug>.+?)/?$', views.resume_edit, name='resume_edit'),
     url(r'^api/', include('apps.api.urls')),
 ]

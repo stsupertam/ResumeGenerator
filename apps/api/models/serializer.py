@@ -25,4 +25,3 @@ class ResumeSerializer(DocumentSerializer):
                   'qualification', 'education', 'experience',
                   'reference', 'slug')
         depth = 2
-

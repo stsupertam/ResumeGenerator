@@ -1,5 +1,10 @@
-from django.shortcuts import render
 from .api.models import Company
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.template.loader import get_template
+from settings import STATIC_ROOT
+import pdfkit
+import os
 
 
 def index(request):
@@ -30,3 +35,22 @@ def resume_edit(request, slug):
 
 def resume_create(request):
     return render(request, 'resume/resume_create.html', {})
+
+
+def pdf_view(request):
+    template = get_template("pdf.html")
+    img_path = STATIC_ROOT + "/picture/girl.jpg"
+    context = {"img": img_path}
+    html = template.render(context)
+    css = ['static/css/bootstrap.css', 'static/css/resume_view.css']
+    pdfkit.from_string(html, 'out.pdf', css=css)
+    pdf = open("out.pdf")
+    response = HttpResponse(pdf.read(), content_type='application/pdf')
+    response['Content-Disposition'] = 'filename=output.pdf'
+    pdf.close()
+    os.remove("out.pdf")
+    return response
+
+
+def pdf_view_test(request):
+    return render(request, 'pdf.html', {})
