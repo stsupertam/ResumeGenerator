@@ -2,6 +2,7 @@ from rest_framework.serializers import *
 from rest_framework_mongoengine.serializers import *
 from .model import Company
 from .model import Resume
+from .model import Html
 import json
 
 
@@ -25,3 +26,10 @@ class ResumeSerializer(DocumentSerializer):
                   'qualification', 'education', 'experience',
                   'reference', 'slug')
         depth = 2
+
+
+class HtmlSerializer(DocumentSerializer):
+    class Meta:
+        model = Html
+        fields = ('slug', 'html')
+

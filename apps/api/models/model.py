@@ -1,5 +1,9 @@
 from mongoengine import *
 
+class Html(Document):
+    slug = StringField(required=True, unique=True)
+    html = StringField(required=True)
+
 
 class Company(Document):
     name = StringField(required=True)

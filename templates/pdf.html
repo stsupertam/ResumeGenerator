@@ -1,93 +1,17 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
+    {% block style %}
+    {% endblock %}
 </head>
 
 <body>
-    <div class="EIEI">
-        <div class="container a4">
-            <div class="inside">
-                <div class="row">
-                    <div class="col-sm-2 header">
-                        <img src="{{ img }}" class="img-circle" height="100px" width="100px" />
-                    </div>
-                    <div class="pull-left col-sm-6">
-                        <h1 id="name">Santitham</h1>
-                    </div>
-                    <div class="pull-left col-sm-4 header">
-                        <p id="address">eieieiei eiie</p>
-                        <p id="phone">09999999</p>
-                        <p id="email">tam#eiei.com</p>
-                        <p id="web">google.com</p>
-                    </div>
-                </div>
-                <div class="row objective">
-                    <h1 class="title">Objective</h1>
-                    <div class="col-sm-offset-2 col-sm-8">
-                        <p id="objective">1</p>
-                        <p id="objective">2</p>
-                        <p id="objective">3</p>
-                        <p id="objective">4</p>
-                    </div>
-                </div>
-                <div class="row skill">
-                    <h1 class="title">SKILL</h1>
-                    <div class="sq-skill col-sm-offset-2 col-sm-8">1
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                    </div>
-                </div>
-                <div class="row qualification">
-                    <h1 class="title">QUALIFICATION</h1>
-                    <div class="sq-qualification col-sm-offset-2 col-sm-8">
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
-                    </div>
-                </div>
-                <div class="row experience">
-                    <h1 class="title">EXPERIENCE</h1>
-                    <div class="exp col-sm-offset-2 col-sm-8">
-                        <div class="exp-0">
-                            <span class="pull-right" id="exp-date-0"></span>
-                            <h3 id="jobtype-0">1</h3>
-                            <p id="company_name-0">1</p>
-                            <p></p>
-                        </div>
-                        <div class="exp-0">
-                            <span class="pull-right" id="exp-date-0"></span>
-                            <h3 id="jobtype-0">1</h3>
-                            <p id="company_name-0">1</p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row education">
-                    <h1 class="title">EDUCATION</h1>
-                    <div class="edu col-sm-offset-2 col-sm-8">
-                        <div class="edu-0">
-                            <div>
-                                <span class="pull-right" id="edu-date-0"></span>
-                                <h3 id="major-0">1</h3>
-                                <p id="degree-0">1</p>
-                                <p id="university_name-0">1</p>
-                            </div>
-                            <div>
-                                <span class="pull-right" id="edu-date-0"></span>
-                                <h3 id="major-0">1</h3>
-                                <p id="degree-0">1</p>
-                                <p id="university_name-0">1</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% block content %}
+    {{ html|safe }}
+    {% endblock %} {% block js %}
+    {% endblock %}
 </body>
 
 </html>

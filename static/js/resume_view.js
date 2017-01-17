@@ -19,7 +19,12 @@ function add_edu_exp(data, type){
                 type_class = type + "-" + (i+1);
                 html.attr("class", type_class);
                 html.find(origin).attr("id", id);
-                html.find(target).text(data[i][item]);
+                if(item == "grade"){
+                    text_data = " (" + data[i][item] + ")";
+                    html.find(target).text(text_data);
+                }
+                else
+                    html.find(target).text(data[i][item]);
             }
         }
         start_year = data[i]['startDate'].split('-');
@@ -74,21 +79,39 @@ $(function(){
 $(function(){
     $("#pdf").click(function(){
         var html = $(".a4").clone();
-        html =  String(html.prop('outerHTML'));
+        img_path = $("#image").attr("value");
+        check = $("#check").attr("value");
+        html.find("img").attr("src", img_path);
+        html =  html.prop('outerHTML');
+        slug = $("div").attr("class");
         data = {};
         data['html'] = html;
-        console.log(data['html'])
-        if(typeof data['html'] === 'string')
-            alert("FUCK UUUUU")
-        Cookies.set('pdfcookie', html, 1);
-        var x = Cookies.get('pdfcookie')
-        for(i in x)
-            console.log(i['name'])
-        slug = $("div").attr("class");
-        url = "/resume/pdf-test/";
-        //$("#pdf").attr("href", url);
+        data['slug'] = slug;
+        data = JSON.stringify(data);
+        url = "/resume/pdf/" + slug;
+        url_api = "/api/html/" + slug + "/";
+        var type = "PUT";
+        if(check == "false"){
+            type = "POST";
+            url_api = "/api/html/";
+        }
+        $.ajax({
+            type: type,
+            url: url_api,
+            dataType: "json",
+            contentType: "application/json",
+            data: data,
+            async: false,
+            success: function(result){
+                setTimeout(function(){
+                    window.location.href = url;
+                },1000);
+            },
+            error: function(xhr, resp, text){
+                console.log(xhr, resp, text);
+            }
+        });
     });
-
 });
 
 $(function(){

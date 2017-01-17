@@ -64,6 +64,7 @@ $(function(){
 
 $(function(){
     $("#edit").click(function(){
+        alert("WTF");
         slug = $("div").attr("class");
         url = "/resume/edit/" + slug + "/";
         $("#edit").attr("href", url);
@@ -73,20 +74,14 @@ $(function(){
 
 $(function(){
     $("#pdf").click(function(){
+        alert("WTF");
         var html = $(".a4").clone();
         html =  String(html.prop('outerHTML'));
         data = {};
         data['html'] = html;
-        console.log(data['html'])
-        if(typeof data['html'] === 'string')
-            alert("FUCK UUUUU")
-        Cookies.set('pdfcookie', html, 1);
-        var x = Cookies.get('pdfcookie')
-        for(i in x)
-            console.log(i['name'])
         slug = $("div").attr("class");
         url = "/resume/pdf-test/";
-        //$("#pdf").attr("href", url);
+        $("#pdf").attr("href", url);
     });
 
 });
