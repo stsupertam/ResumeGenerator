@@ -52,9 +52,11 @@ $(function(){
     slug = $("div").attr("class");
     url = "/api/resume/" + slug + "/";
     $.get(url, function(data){
-        name = data['firstname'] + " " + data['lastname'];
+        first_name = data['firstname'];
+        last_name = data['lastname'];
         address = data['street']+ " " + data['district'] + " " + data['city'] + " " + data['zipcode'];
-        $("#name").text(name);
+        $("#first_name").text(first_name);
+        $("#last_name").text(last_name);
         $("#address").text(address);
         $("#phone").text(data['phone']);
         $("#email").text(data['email']);
