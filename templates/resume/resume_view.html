@@ -9,14 +9,14 @@
 
 <body>
     {% block content %}
-    <input id="image" type="hidden" value={{ img }} />
+    <input id="image" type="hidden" value={{ PICTURE_ROOT }} />
     <input id="check" type="hidden" value={{ check }} />
     <div class="{{ slug }}">
         <div class="container a4">
             <div class="inside">
                 <div class="row">
                     <div class="pull-left col-sm-2 header">
-                        <img src="{{ img_path }}" class="img-circle" width="100px" height="100px" />
+                        <img src="{{ MEDIA_URL }}{{ img }}" class="img-circle" width="100px" height="100px" />
                     </div>
                     <div class="pull-left col-sm-6">
                         <h2 id="first_name"></h2>

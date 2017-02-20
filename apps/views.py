@@ -6,6 +6,7 @@ from django.template.loader import get_template
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from settings import MEDIA_ROOT
+from settings import MEDIA_URL
 import pdfkit
 import os
 
@@ -31,16 +32,17 @@ def list_company(request):
 def resume_view(request, slug):
     location = MEDIA_ROOT + "/picture"
     fs = FileSystemStorage(location=location)
-    img_path = MEDIA_ROOT + "/picture/profile.png"
+    picture = MEDIA_ROOT + "/picture/profile.png"
+    img_path = "/picture/profile.png"
     myfile = slug + ".jpg"
     if(fs.exists(myfile)):
-        img_path = MEDIA_ROOT + "/picture/" + myfile
+        picture = MEDIA_ROOT + "/picture/" + myfile
+        img_path = "/picture/" + myfile
     html = Html.objects(slug=slug)
     check_resume_data = "false"
     if(html):
         check_resume_data = "true"
-    print(check_resume_data)
-    return render(request, 'resume/resume_view.html', {"slug": slug, "img": img_path, "check": check_resume_data})
+    return render(request, 'resume/resume_view.html', {"slug": slug, "img": img_path, "check": check_resume_data, "MEDIA_URL": MEDIA_URL, "PICTURE_ROOT": picture})
 
 
 def resume_edit(request, slug):

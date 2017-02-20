@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from django.contrib.staticfiles.urls import static
+from django.conf import settings
+from django.conf.urls.static import static
 import settings
 from . import views
 
@@ -29,4 +30,4 @@ urlpatterns = [
     url(r'^resume/pdf/(?P<slug>.+?)/?$', views.pdf, name='pdf'),
     url(r'^resume/edit/(?P<slug>.+?)/?$', views.resume_edit, name='resume_edit'),
     url(r'^api/', include('apps.api.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
