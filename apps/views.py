@@ -3,7 +3,9 @@ from .api.models import Html
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.loader import get_template
-from settings import STATIC_ROOT
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from settings import MEDIA_ROOT
 import pdfkit
 import os
 
@@ -27,7 +29,12 @@ def list_company(request):
 
 
 def resume_view(request, slug):
-    img_path = STATIC_ROOT + "/picture/profile.png"
+    location = MEDIA_ROOT + "/picture"
+    fs = FileSystemStorage(location=location)
+    img_path = MEDIA_ROOT + "/picture/profile.png"
+    myfile = slug + ".jpg"
+    if(fs.exists(myfile)):
+        img_path = MEDIA_ROOT + "/picture/" + myfile
     html = Html.objects(slug=slug)
     check_resume_data = "false"
     if(html):
@@ -46,7 +53,7 @@ def resume_create(request):
 
 def pdf(request, slug):
     template = get_template("pdf.html")
-    img_path = STATIC_ROOT + "/picture/profile.png"
+    img_path = MEDIA_ROOT + "/picture/profile.png"
     html = Html.objects(slug=slug).first().html
     context = {
         "img": img_path,
@@ -61,3 +68,16 @@ def pdf(request, slug):
     pdf.close()
     os.remove("resume.pdf")
     return response
+
+
+def upload(request, slug):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        myfile.name = slug + "." + "jpg"
+        location = MEDIA_ROOT + "/picture"
+        fs = FileSystemStorage(location=location)
+        if(fs.exists(myfile.name)):
+            fs.delete(myfile.name)
+        fs.save(myfile.name, myfile)
+        return render(request, 'upload.html')
+    return render(request, 'upload.html')

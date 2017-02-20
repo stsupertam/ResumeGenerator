@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.contrib.staticfiles.urls import static
+import settings
 from . import views
 
 urlpatterns = [
@@ -21,6 +23,7 @@ urlpatterns = [
     url(r'^add/', views.add_company, name='add'),
     url(r'^edit/(?P<slug>.+?)/?$', views.edit_company, name='edit'),
     url(r'^list/', views.list_company, name='list'),
+    url(r'^upload/(?P<slug>.+?)/?$', views.upload, name='upload'),
     url(r'^resume/view/(?P<slug>.+?)/?$', views.resume_view, name='resume_view'),
     url(r'^resume/create/?$', views.resume_create, name='resume_create'),
     url(r'^resume/pdf/(?P<slug>.+?)/?$', views.pdf, name='pdf'),

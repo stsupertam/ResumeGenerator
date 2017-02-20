@@ -16,7 +16,7 @@
             <div class="inside">
                 <div class="row">
                     <div class="pull-left col-sm-2 header">
-                        <img src="{% static 'picture/profile.png' %}" class="img-circle" width="100px" height="100px" />
+                        <img src="{{ img_path }}" class="img-circle" width="100px" height="100px" />
                     </div>
                     <div class="pull-left col-sm-6">
                         <h2 id="first_name"></h2>
@@ -78,6 +78,15 @@
         <a class="btn btn-primary" href="#/" role="button" id="edit">Edit</a>
         <a class="btn btn-primary" href="#/" role="button" id="delete">Delete</a>
         <a class="btn btn-primary" href="{% url 'index' %}" role="button">Back</a>
+        <form action="/upload/{{ slug }}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-sm-8">
+                <input type="file" name="myfile">
+            </div>
+            <div class="col-sm-4">
+                <button type="submit" id="upload">Upload</button>
+            </div>
+        </form>
     </div>
 
     {% endblock %} {% block js %}
