@@ -1,2 +1,2 @@
-# internshipfinder
-Find some place to take me as an internship
+# ResumeGenerator
+Bug Bug Bug and Bug
